@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
+
 import TodoListFilter from "./TodoListFilter";
 import Todo from "./Todo";
 import { useTodoList } from "../context/todoListContext";
@@ -10,8 +12,9 @@ const filter = (todoList, filterStatus) => {
 };
 
 export default () => {
+    const [storage, setStorage] = useLocalStorage("filterStatus");
     const todoList = useTodoList();
-    const [filterStatus, setFilterStatus] = useState("all");
+    const [filterStatus, setFilterStatus] = useState(storage ?? "all");
     const [filterList, setFilterList] = useState(() => filter(todoList, filterStatus));
 
     useEffect(() => {
@@ -21,6 +24,7 @@ export default () => {
     const handleStatusChange = (status) => {
         setFilterList(filter(todoList, status));
         setFilterStatus(status);
+        setStorage(status);
     };
 
     return (

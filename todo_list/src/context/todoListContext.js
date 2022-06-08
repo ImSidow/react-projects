@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const TodoListContext = React.createContext();
 const AddTodoContext = React.createContext();
@@ -24,7 +25,12 @@ export function useMarkTodoAsCompleted() {
 
 // global context provider
 export function TodoProvider({ children }) {
-    const [todoList, setTodoList] = useState([]);
+    const [storage, setStorage] = useLocalStorage("todoList");
+    const [todoList, setTodoList] = useState(storage ?? []);
+
+    useEffect(() => {
+        setStorage(todoList);
+    }, [todoList]);
 
     const addTodo = (todo) => {
         let len = todoList.length;
@@ -44,9 +50,7 @@ export function TodoProvider({ children }) {
         <TodoListContext.Provider value={todoList}>
             <AddTodoContext.Provider value={addTodo}>
                 <markTodoAsCompletedContext.Provider value={markTodoAsCompleted}>
-                    <removeTodoContext.Provider value={removeTodo}>
-                        {children}
-                    </removeTodoContext.Provider>
+                    <removeTodoContext.Provider value={removeTodo}>{children}</removeTodoContext.Provider>
                 </markTodoAsCompletedContext.Provider>
             </AddTodoContext.Provider>
         </TodoListContext.Provider>
