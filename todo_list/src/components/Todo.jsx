@@ -2,7 +2,7 @@ import TickMarkIcon from "./icons/TickMarkIcon";
 import CrossIcon from "./icons/CrossIcon";
 import { useMarkTodoAsCompleted, useRemoveTodo } from "../context/todoListContext";
 
-export default ({ data }) => {
+export default function Todo({ data }) {
     const markTodoAsCompleted = useMarkTodoAsCompleted();
     const removeTodo = useRemoveTodo();
 
@@ -20,4 +20,4 @@ export default ({ data }) => {
             </button>
         </div>
     );
-};
+}

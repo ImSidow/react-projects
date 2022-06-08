@@ -11,7 +11,7 @@ const filter = (todoList, filterStatus) => {
     else if (filterStatus === "todo") return todoList.filter((val) => !val.isCompleted);
 };
 
-export default () => {
+export default function TodoList() {
     const [storage, setStorage] = useLocalStorage("filterStatus");
     const todoList = useTodoList();
     const [filterStatus, setFilterStatus] = useState(storage ?? "all");
@@ -35,4 +35,4 @@ export default () => {
             ))}
         </div>
     );
-};
+}

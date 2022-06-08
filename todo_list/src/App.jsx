@@ -2,7 +2,7 @@ import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 import { TodoProvider } from "./context/todoListContext";
 
-export default () => {
+export default function App() {
     return (
         <TodoProvider>
             <div className="bg-[#F6F8FA] h-screen flex flex-col justify-center items-center">
@@ -14,4 +14,4 @@ export default () => {
             </div>
         </TodoProvider>
     );
-};
+}

@@ -1,7 +1,7 @@
 import TodoListIcon from "./icons/TodoListIcon";
 
 let activeClass = "text-custom-blue-500 bg-custom-blue-200";
-export default ({ status, changeStatus }) => {
+export default function TodoListFilter({ status, changeStatus }) {
     return (
         <div className="flex mt-2 px-2 pb-2 border-b border-gray-300">
             <TodoListIcon className="w-6 h-6 text-custom-blue-200" />
@@ -18,4 +18,4 @@ export default ({ status, changeStatus }) => {
             </div>
         </div>
     );
-};
+}

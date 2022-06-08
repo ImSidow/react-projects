@@ -1,4 +1,4 @@
-export default ({ className }) => {
+export default function PlusIcon({ className }) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 512 512" className={className}>
             <path xmlns="http://www.w3.org/2000/svg" d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3" data-original="#2196f3"></path>
@@ -10,4 +10,4 @@ export default ({ className }) => {
             ></path>
         </svg>
     );
-};
+}

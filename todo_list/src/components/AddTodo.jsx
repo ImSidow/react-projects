@@ -3,7 +3,7 @@ import TodoListIcon from "./icons/TodoListIcon";
 import PlusIcon from "./icons/PlusIcon";
 import { useAddTodo } from "../context/todoListContext";
 
-export default () => {
+export default function AddTodo() {
     const addTodo = useAddTodo();
     const inputRef = useRef();
     const plusBtnRef = useRef();
@@ -38,4 +38,4 @@ export default () => {
             </button>
         </div>
     );
-};
+}
