@@ -30,7 +30,7 @@ export function TodoProvider({ children }) {
 
     useEffect(() => {
         setStorage(todoList);
-    }, [todoList]);
+    }, [todoList, setStorage]);
 
     const addTodo = (todo) => {
         let len = todoList.length;
