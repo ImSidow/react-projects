@@ -19,7 +19,7 @@ export default function TodoList() {
 
     useEffect(() => {
         setFilterList(filter(todoList, filterStatus));
-    }, [todoList]);
+    }, [todoList, filterStatus]);
 
     const handleStatusChange = (status) => {
         setFilterList(filter(todoList, status));
