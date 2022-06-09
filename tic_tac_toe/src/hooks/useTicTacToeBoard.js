@@ -93,6 +93,7 @@ export default function useTicTacToeBoard() {
 
     const reset = () => {
         setBoard(initialValue);
+        setWinner(null);
     };
 
     return [board, modifyBoard, player, winner, reset];

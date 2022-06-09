@@ -10,7 +10,7 @@ export default function Board() {
         if (winner) {
             if (winner === "draw") setGameState(winner);
             else setGameState(`${winner} won`);
-        }
+        } else setGameState(null);
     }, [winner]);
 
     return (
@@ -31,11 +31,7 @@ export default function Board() {
             <div className="grid grid-cols-3 gap-1 bg-white w-5/12 h-4/6 drop-shadow-sm rounded-md p-1">
                 {board.map((row, rowIndex) =>
                     row.map((column, columnIndex) => (
-                        <Card
-                            value={column}
-                            key={columnIndex.toString()}
-                            onClick={() => modifyBoard(rowIndex, columnIndex)}
-                        />
+                        <Card value={column} key={columnIndex.toString()} onClick={() => modifyBoard(rowIndex, columnIndex)} />
                     ))
                 )}
             </div>
