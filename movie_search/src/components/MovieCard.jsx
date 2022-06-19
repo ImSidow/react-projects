@@ -5,11 +5,14 @@ export default function MovieCard({ movie }) {
     const [movieFullData, setMovieFullData] = useState({});
 
     useEffect(() => {
-        searchById(movie.imdbID, (movie) => {
-            let mins = Number(movie.Runtime.split(' ')?.[0])
-            console.log(mins / 60);
-            setMovieFullData(movie);
-        });
+
+        console.log(movie);
+
+        // searchById(movie.imdbID, (movie) => {
+        //     let mins = Number(movie.Runtime.split(' ')?.[0])
+        //     console.log(mins / 60);
+        //     setMovieFullData(movie);
+        // });
     }, []);
 
     return (
