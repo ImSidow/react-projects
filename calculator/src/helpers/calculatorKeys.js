@@ -1,6 +1,7 @@
 import DivideIcon from "../components/icons/DivideIcon";
 import UndoIcon from "../components/icons/UndoIcon";
 import MinusIcon from "../components/icons/MinusIcon";
+import PlusIcon from "../components/icons/PlusIcon";
 import DotIcon from "../components/icons/DotIcon";
 import MultiplicationIcon from "../components/icons/MultiplicationIcon";
 
@@ -20,7 +21,7 @@ const calculatorKeys = {
     13: { value: "1" },
     14: { value: "2" },
     15: { value: "3" },
-    16: { value: "+" },
+    16: { value: "+", icon: <PlusIcon /> },
     17: { value: "undo", icon: <UndoIcon /> },
     18: { value: "0" },
     19: { value: ".", icon: <DotIcon /> },
