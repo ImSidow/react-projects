@@ -14,6 +14,14 @@ export function useSetKeyPressedContext() {
 export function KeyPressedProvider({ children }) {
     const [keyPressed, setKeyPressed] = useState("");
 
+    useEffect(() => {
+        if (keyPressed) {
+            setTimeout(() => {
+                setKeyPressed("");
+            }, 100);
+        }
+    }, [keyPressed]);
+
     return (
         <KeyPressedContext.Provider value={keyPressed}>
             <SetKeyPressedContext.Provider value={setKeyPressed}>

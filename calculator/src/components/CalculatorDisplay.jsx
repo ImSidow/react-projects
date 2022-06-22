@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useCalculator from "../hooks/useCalculator";
 import styled from "styled-components";
 import { useKeyPressedContext } from "../context/keyPressedContext";
@@ -18,33 +18,71 @@ function Container({ children }) {
 }
 
 export default function CalculatorDisplay() {
+    const calculatorDisplayRef = useRef();
+    const prevDisplay = useRef();
+    const pressedKey = useRef(null);
+
     const [setPressedKeyValue] = useCalculator();
-    const [pressedKey, setPressedKey] = useState("");
     const keyPressed = useKeyPressedContext();
 
     useEffect(() => {
         if (keyPressed) {
             setPressedKeyValue(keyPressed.value);
+
             let value = keyPressed.icon ?? keyPressed.value;
-            setPressedKey((prevKey) => {
-                prevKey = prevKey?.props?.children ?? "";
+            if (typeof value === "object" && !pressedKey.current) return;
 
-                if (typeof prevKey === "object") {
-                    value = <span>{value}</span>;
-                }
+            //
+            let element = calculatorDisplayRef.current.children[0];
+            let elementChildren = element?.children;
+            let elementChildrenLen = element?.children.length;
 
-                return (
-                    <Container>
-                        {prevKey} {value}
-                    </Container>
-                );
-            });
+            // update ref as state
+            pressedKey.current = update(
+                pressedKey.current,
+                value,
+                element,
+                elementChildren,
+                elementChildrenLen
+            );
         }
     }, [keyPressed]);
 
+    const update = (
+        prevKey,
+        value,
+        element,
+        elementChildren,
+        elementChildrenLen
+    ) => {
+        prevKey = prevKey?.props?.children ?? "";
+
+        if (element) {
+            let lastElementChildrenLen =
+                elementChildren[elementChildrenLen - 1].children.length;
+
+            if (lastElementChildrenLen > 0 && typeof value === "object")
+                return (
+                    <Container>
+                        {prevDisplay.current} <span>{value}</span>
+                    </Container>
+                );
+        }
+
+        prevDisplay.current = prevKey;
+        return (
+            <Container>
+                {prevKey} <span>{value}</span>
+            </Container>
+        );
+    };
+
     return (
-        <div className="w-full h-full flex justify-end items-end text-3xl px-4">
-            {pressedKey}
+        <div
+            ref={calculatorDisplayRef}
+            className="w-full h-full flex justify-end items-end text-3xl px-4"
+        >
+            {pressedKey.current}
         </div>
     );
 }
