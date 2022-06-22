@@ -27,8 +27,6 @@ export default function CalculatorDisplay() {
 
     useEffect(() => {
         if (keyPressed) {
-            setPressedKeyValue(keyPressed.value);
-
             let value = keyPressed.icon ?? keyPressed.value;
             if (typeof value === "object" && !pressedKey.current) return;
 
@@ -45,6 +43,7 @@ export default function CalculatorDisplay() {
                 elementChildren,
                 elementChildrenLen
             );
+            setPressedKeyValue(keyPressed.value);
         }
     }, [keyPressed]);
 

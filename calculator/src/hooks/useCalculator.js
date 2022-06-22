@@ -55,8 +55,17 @@ export default function useCalculator() {
     }, []);
 
     const setPressedKeyValue = (value) => {
+        if (isNaN(value) && pressedKeysValue.current.at(-1) === value) return;
+        else if (isNaN(value) && isNaN(pressedKeysValue.current.at(-1))) {
+            let len = pressedKeysValue.current.length
+            pressedKeysValue.current[len -1] = value
+            return;
+        }
+
         pressedKeysValue.current = [...pressedKeysValue.current, value];
         calculate(pressedKeysValue.current);
+
+        console.log(pressedKeysValue.current);
     };
 
     return [setPressedKeyValue];
