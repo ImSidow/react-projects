@@ -1,7 +1,7 @@
 export default function Sidebar() {
     return (
         <aside className="w-72" aria-label="Sidebar">
-            <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800 h-full">
+            <div className="overflow-y-auto py-4 px-3 bg-[#D7DBDE] dark:bg-gray-800 h-full">
                 <a href="https://flowbite.com/" className="flex items-center pl-2.5 mb-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" x="0" y="0" viewBox="0 0 61.858 61.858">
                         <path
