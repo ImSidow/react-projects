@@ -1,6 +1,12 @@
-const ImgCard: React.FunctionComponent<{ svg: React.ReactNode; shown: boolean }> = ({ svg, shown }) => {
+import { useAppDispatch } from "../hooks/reactRedux";
+import { ImageType } from "../store/boardSlice";
+import { revealImage } from "../store/boardMiddleware";
+
+const ImgCard: React.FunctionComponent<{ data: ImageType }> = ({ data: { svg, shown, id } }) => {
+    const dispatch = useAppDispatch();
+
     return (
-        <div className="border border-gray-300 bg-[#F7F7F7] w-[6rem] h-[5.4rem] flex justify-center items-center rounded-md">
+        <div onClick={() => dispatch(revealImage(id))} className="border border-gray-300 bg-[#F7F7F7] w-[6rem] h-[5.4rem] flex justify-center items-center rounded-md">
             <span className="text-xl">{shown ? svg : <Placeholder />}</span>
         </div>
     );
