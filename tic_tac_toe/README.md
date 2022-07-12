@@ -33,7 +33,7 @@ npm start
 
 ## I used
 
-[x] custom hook
+- [x] custom hook
 
 ### If you want to help me
 
