@@ -9,25 +9,25 @@
 step 1
 
 ```
-    https://github.com/ImSidow/react-projects.git
+https://github.com/ImSidow/react-projects.git
 ```
 
 step 2
 
 ```
-    cd tic_tac_toe
+cd tic_tac_toe
 ```
 
 step 3
 
 ```
-    npm install
+npm install
 ```
 
 step 4
 
 ```
-    npm start
+npm start
 ```
 
 
