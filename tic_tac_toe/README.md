@@ -1,8 +1,8 @@
 # React Tic Tac Toe
 
-![project screenshot] (screenshots/1.png?row=true)
-![project screenshot] (screenshots/2.png?row=true)
-![project screenshot] (screenshots/3.png?row=true)
+![project screenshot] (./screenshots/1.png?row=true)
+![project screenshot] (./screenshots/2.png?row=true)
+![project screenshot] (./screenshots/3.png?row=true)
 
 ## Steps to install and run this project
 
