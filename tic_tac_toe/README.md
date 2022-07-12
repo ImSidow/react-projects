@@ -1,8 +1,8 @@
 # React Tic Tac Toe
 
-![project screenshot] (https://github.com/ImSidow/react-projects/tree/master/tic_tac_toe/screenshots/1.png?row=true)
-![project screenshot] (https://github.com/ImSidow/react-projects/tree/master/tic_tac_toe/screenshots/2.png?row=true)
-![project screenshot] (https://github.com/ImSidow/react-projects/tree/master/tic_tac_toe/screenshots/3.png?row=true)
+![project screenshot] (./tic_tac_toe/screenshots/1.png?row=true)
+![project screenshot] (./tic_tac_toe/screenshots/2.png?row=true)
+![project screenshot] (./tic_tac_toe/screenshots/3.png?row=true)
 
 ## Steps to install and run this project
 
