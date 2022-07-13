@@ -32,12 +32,10 @@ export default function SignIn() {
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" x="0" y="0" viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-[#2680FE] dark:text-gray-400">
                                     <path
                                         xmlns="http://www.w3.org/2000/svg"
                                         d="m18.75 9h-.75v-3c0-3.309-2.691-6-6-6s-6 2.691-6 6v3h-.75c-1.24 0-2.25 1.009-2.25 2.25v10.5c0 1.241 1.01 2.25 2.25 2.25h13.5c1.24 0 2.25-1.009 2.25-2.25v-10.5c0-1.241-1.01-2.25-2.25-2.25zm-10.75-3c0-2.206 1.794-4 4-4s4 1.794 4 4v3h-8zm5 10.722v2.278c0 .552-.447 1-1 1s-1-.448-1-1v-2.278c-.595-.347-1-.985-1-1.722 0-1.103.897-2 2-2s2 .897 2 2c0 .737-.405 1.375-1 1.722z"
-                                        fill="#2680FE"
-                                        data-original="#2680FE"
                                     ></path>
                                 </svg>
                             </div>
