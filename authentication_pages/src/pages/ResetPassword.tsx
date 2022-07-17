@@ -9,7 +9,7 @@ const schema = object({
 });
 
 export default function SignIn() {
-    const {
+    const { 
         register,
         handleSubmit,
         formState: { errors },
