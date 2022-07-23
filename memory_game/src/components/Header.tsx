@@ -5,11 +5,11 @@ export default function Header() {
     const { moves, pairMatched, allMatched } = useAppSelector((state) => state.board);
 
     useEffect(() => {
-        if (allMatched) alert("d");
+        if (allMatched) alert("You won!!!");
     }, [allMatched]);
 
     return (
-        <div className="flex justify-between w-[37%] mb-3">
+        <div className="flex justify-between w-full md:w-[70%] lg:w-[40%] mb-3">
             <div className="p-2 w-full bg-white rounded-lg drop-shadow-sm dark:bg-gray-800 dark:border-gray-700">
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-2">
                     <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${(pairMatched / 15) * 100}%` }}></div>

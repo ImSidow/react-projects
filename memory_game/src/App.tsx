@@ -8,7 +8,7 @@ import Header from "./components/Header";
 export default function App() {
     return (
         <Provider store={store}>
-            <main className="h-screen overflow-hidden bg-[#F7F7F7] flex flex-col justify-center items-center">
+            <main className="h-screen overflow-hidden bg-[#F7F7F7] flex flex-col px-2 justify-center items-center">
                 <Header />
                 <Board />
                 <Footer />

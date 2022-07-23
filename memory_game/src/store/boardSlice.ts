@@ -12,7 +12,14 @@ const uid = function () {
 const randomImages = (arr: string[]): ImageType[] => {
     let arrayOfImages: ImageType[] = [];
 
-    arr.forEach(element => {
+    arr.forEach((element, index) => {
+        // let svg;
+        // if (index == 13) {
+        //     svg = { id: arrayOfImages.length, svg: images[element], shown: false, matched: false, uuid: uid() };
+        // } else {
+        //     svg = { id: arrayOfImages.length, svg: images[element], shown: true, matched: true, uuid: uid() };
+        // }
+
         let svg = { id: arrayOfImages.length, svg: images[element], shown: false, matched: false, uuid: uid() };
         arrayOfImages.push(svg);
         arrayOfImages.push({ ...svg, id: arrayOfImages.length });
@@ -85,6 +92,7 @@ export const boardSlice = createSlice({
                     boardSlice.caseReducers.modifyRandomImages(state, { payload: { id: element.id, shown: true, matched: true }, type: '' })
                 });
                 boardSlice.caseReducers.incrementPairMatched(state)
+                boardSlice.caseReducers.allMatched(state)
             }
             state.eachMove = []
             boardSlice.caseReducers.incrementMoves(state)
@@ -93,10 +101,32 @@ export const boardSlice = createSlice({
         allMatched: state => {
             let found = state.randomImages.find(value => value.matched === false)
             state.allMatched = found ? false : true
+        },
+
+        reset: state => {
+            state.pairMatched = 0
+            state.moves = 0
+            state.allMatched = false
+            state.eachMove = []
+            state.randomImages = randomImages(availableImages)
+        },
+
+        endGame: state => {
+            let remainedMove = 15 - state.pairMatched
+            state.pairMatched += remainedMove
+            state.moves += remainedMove
+
+            // state.allMatched = true
+            state.eachMove = []
+            state.randomImages = state.randomImages.map(val => {
+                val.matched = true
+                val.shown = true
+                return val
+            })
         }
     }
 });
 
-export const { modifyRandomImages, addDataToEachMove } = boardSlice.actions
+export const { modifyRandomImages, addDataToEachMove, reset, endGame } = boardSlice.actions
 export type { ImageType }
 export default boardSlice.reducer

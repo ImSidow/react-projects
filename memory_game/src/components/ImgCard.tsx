@@ -6,7 +6,7 @@ const ImgCard: React.FunctionComponent<{ data: ImageType }> = ({ data: { svg, sh
     const dispatch = useAppDispatch();
 
     return (
-        <div onClick={() => dispatch(revealImage(id))} className="border border-gray-300 bg-[#F7F7F7] w-[6rem] h-[5.4rem] flex justify-center items-center rounded-md">
+        <div onClick={() => dispatch(revealImage(id))} className="border border-gray-300 bg-[#F7F7F7] w-[100%] h-[5.5rem] flex justify-center items-center rounded-md">
             <span className="text-xl">{shown ? svg : <Placeholder />}</span>
         </div>
     );
